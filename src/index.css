@@ -1,13 +1,231 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* ToDoList.css */
+/* index.css or global CSS */
+html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+
+.to-do-list {
+    background-color: #121212;
+    color: #e0e0e0;
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.to-do-list h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #bb86fc;
+    text-shadow: 0 0 5px #bb86fc;
+}
+
+.to-do-list input[type="text"] {
+    width: 70%;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px 0 0 8px;
+    font-size: 16px;
+    outline: none;
+    background-color: #333333;
+    color: #e0e0e0;
+    transition: background-color 0.3s ease;
+}
+
+.to-do-list input[type="text"]:focus {
+    background-color: #444444;
+    box-shadow: 0 0 8px #bb86fc;
+}
+
+.add-button {
+    padding: 10px 20px;
+    border: none;
+    background: #bb86fc;
+    color: #121212;
+    font-weight: 600;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    user-select: none;
+}
+
+.add-button:hover {
+    background: #985eff;
+    color: white;
+}
+
+ol {
+    margin-top: 30px;
+    padding-left: 20px;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #222222;
+    margin-bottom: 12px;
+    padding: 12px 15px;
+    border-radius: 10px;
+    font-size: 17px;
+    box-shadow: inset 2px 2px 5px #000000aa, inset -2px -2px 5px #444444;
+    user-select: none;
+}
+
+.text {
+    flex-grow: 1;
+    color: #e0e0e0;
+    padding-right: 15px;
+    word-break: break-word;
+}
+
+.delete-button, .move-button {
+    background: #444444;
+    border: none;
+    color: #ccc;
+    padding: 6px 12px;
+    margin-left: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.delete-button:hover {
+    background: #ff5555;
+    color: #fff;
+}
+
+.move-button:hover {
+    background: #7777ff;
+    color: #fff;
+}
+
+/* For completed tasks */
+.completed {
+  text-decoration: line-through;
+  color: #888;
+  cursor: pointer;
+}
+
+/* Top controls: input + add button */
+.top-controls {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+/* Search + Export/Import controls */
+.search-export-import {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  flex-grow: 1;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #333333;
+  color: #e0e0e0;
+  font-size: 16px;
+  outline: none;
+  transition: background-color 0.3s ease;
+}
+
+.search-input:focus {
+  background-color: #444444;
+  box-shadow: 0 0 8px #bb86fc;
+  color: white;
+}
+
+.export-button,
+.import-label {
+  padding: 8px 14px;
+  border-radius: 8px;
+  background-color: #bb86fc;
+  color: #121212;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+  border: none;
+}
+
+.export-button:hover,
+.import-label:hover {
+  background-color: #985eff;
+  color: white;
+}
+
+/* Edit input */
+.edit-input {
+  flex-grow: 1;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  outline: none;
+  margin-right: 10px;
+}
+
+/* Edit buttons */
+.edit-button,
+.save-button,
+.cancel-button {
+  padding: 6px 12px;
+  margin-left: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  font-size: 14px;
+  user-select: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.edit-button {
+  background: #444444;
+  color: #ccc;
+}
+
+.edit-button:hover {
+  background: #7777ff;
+  color: #fff;
+}
+
+.save-button {
+  background: #4caf50;
+  color: white;
+}
+
+.save-button:hover {
+  background: #45a049;
+}
+
+.cancel-button {
+  background: #f44336;
+  color: white;
+}
+
+.cancel-button:hover {
+  background: #da190b;
 }
